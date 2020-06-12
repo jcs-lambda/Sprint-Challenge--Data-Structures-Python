@@ -39,7 +39,7 @@ print (f"runtime: {end_time - start_time} seconds")
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
 
-print('\n\n------------------ Stretch -----------------\n\n')
+print('\n\n------------------ Stretch from names.py -----------------')
 
 start_time = time.time()
 
@@ -58,3 +58,26 @@ print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
 # runtime: 0.006196260452270508 seconds
+
+
+print('\n\n------------------ Stretch from README.md -----------------')
+
+start_time = time.time()
+
+f = open(full_path('names_1.txt'), 'r')
+names_1 = f.read().split("\n")  # List containing 10000 names
+f.close()
+
+duplicates = []
+
+f = open(full_path('names_2.txt'), 'r')
+for line in f:
+    if line[:-1] in names_1:
+        duplicates.append(line[:-1])
+f.close()
+
+end_time = time.time()
+print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print (f"runtime: {end_time - start_time} seconds")
+
+# runtime: 2.237161159515381 seconds
