@@ -1,12 +1,18 @@
-import time
+import os, time
+
+
+def full_path(filename:str) -> str:
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    return os.path.join(current_dir, filename)
+
 
 start_time = time.time()
 
-f = open('names_1.txt', 'r')
+f = open(full_path('names_1.txt'), 'r')
 names_1 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-f = open('names_2.txt', 'r')
+f = open(full_path('names_2.txt'), 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
